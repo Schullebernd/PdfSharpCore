@@ -1,3 +1,10 @@
+# Schullebernd/PdfSharpCore
+**Schullebernd/PdfSharpCore** is a clone from ststeiger/PdfSharpCore.
+The base library can be used in a Xamarin.Forms project to generate PDF files offline in the app but there are some problems concerning fonts.
+####This library adds the following features:####
+- Linespace between words in Drawing.Layout.XTextFormatter can be set manually or in the constructor.
+
+# Here is the opriginal readme content from ststeiger/PdfSharpCore
 # PdfSharpCore
 
 **PdfSharpCore** is a partial port of [PdfSharp.Xamarin](https://github.com/roceh/PdfSharp.Xamarin/) for .NET Standard

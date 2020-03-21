@@ -49,6 +49,16 @@ namespace PdfSharpCore.Drawing.Layout
                 throw new ArgumentNullException("gfx");
             _gfx = gfx;
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="XTextFormatter"/> class with specifying the space between words.
+        /// </summary>
+        public XTextFormatter(XGraphics gfx, double wordSpace)
+        {
+            if (gfx == null)
+                throw new ArgumentNullException("gfx");
+            _gfx = gfx;
+            _spaceWidth = wordSpace;
+        }
         readonly XGraphics _gfx;
 
         /// <summary>
@@ -61,6 +71,15 @@ namespace PdfSharpCore.Drawing.Layout
             set { _text = value; }
         }
         string _text;
+
+        /// <summary>
+        /// Gets or sets the space between two words. If set to 0, the standard width from the font will be used.
+        /// </summary>
+        public double WordSpace
+        {
+            get { return _spaceWidth; }
+            set { _spaceWidth = value; }
+        }
 
         /// <summary>
         /// Gets or sets the font.
@@ -79,8 +98,11 @@ namespace PdfSharpCore.Drawing.Layout
                 _cyDescent = _lineSpace * _font.CellDescent / _font.CellSpace;
 
                 // HACK in XTextFormatter
-                _spaceWidth = _gfx.MeasureString("x x", value).Width;
-                _spaceWidth -= _gfx.MeasureString("xx", value).Width;
+                if (_spaceWidth == 0) // Schullebernd: Added to support individual word spaces
+                {
+                    _spaceWidth = _gfx.MeasureString("x x", value).Width;
+                    _spaceWidth -= _gfx.MeasureString("xx", value).Width;
+                }
             }
         }
         XFont _font;
