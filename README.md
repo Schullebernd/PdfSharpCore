@@ -1,9 +1,90 @@
 # Schullebernd/PdfSharpCore
 **Schullebernd/PdfSharpCore** is a clone from ststeiger/PdfSharpCore.
-The base library can be used in a Xamarin.Forms project to generate PDF files offline in the app but there are some problems concerning fonts.
+The base library can be used in a Xamarin.Forms project to generate PDF files offline. I only made some minor chages to implement a word space handling.
 
 #### This library adds the following features:
 - Linespace between words in Drawing.Layout.XTextFormatter can be set manually or in the constructor.
+
+## Not my work
+I explicitly want to say that this library is not my work. I only took (forked) it because I needed some minor changes to use it out of the box in a Xamarin app. I couldn't find a pdf library in NuGet that worked out of the box except the one from ststeiger.
+The library also contains the MigraDoc port. It's working from my point of view and can also be used. I changed the project output options so that you can easyly build your own nuget packages and use them as offline packages.
+
+## How to use it?
+1. Download or clone the project to your local developer machine.
+2. Open the project (*.sln) and build the project called *SBMigraDocCore.Rendering*. This builds all libraries and creates NuGet-Packages for all of them.
+3. Create a new folder for local nuget packages on your developer machine (e.g. "./LocalNugetPackages").
+4. Copy all *.nupgk files from the output folders (./bin/Release/Schullebernd.[...].nupkg) into this local directory.
+5. In the NuGet-Manager-Options add this folder as a package source (This has to be done in the solution project thats wants to use the MigraDoc and PdfSharp functions).
+6. Now open the Nuget-Manager and switch the source to the new local folder (on the top right corner).
+7. No you should see the list of the self-created nuget packages and can install it.
+7.1. If you only want to use PdfSharpCore, then install Schullebernd.PdfSharpCore package.
+7.2. If you want to use MigraDoc to create pdf files, then install Schullebernd.PdfSharpCore.MigraDocCore package.
+
+## Usage in a Xamarin App
+To add pdf generating functions to your Xamarin app you have to take care of some things.
+1. You should embedd the fonts you want to use in the pdf document into the shared project of your Xamarin app.
+- Add a new folder called ./Fonts to your shared project and copy some fonts into it (I downloaded some fonts from [Google Fonts](https://fonts.google.com/) ).
+- At least there should be 4 variants available for each font (e.g. Lato-Bold.ttf, Lato-BoldItalic.ttf, Lato-Italc.ttf and Lato-Regular.ttf).
+- Set the build option for this font files to 'Embedded Ressource'
+2. Create your own FontResolver in the share project that loads the fonts from the local ressources.
+```cs
+public class FontResolver : IFontResolver
+{
+	public string DefaultFontName => "Lato";
+
+	public byte[] GetFont(string faceName)
+	{
+		using (var ms = new MemoryStream())
+		{
+			var assembly = typeof(FontResolver).GetTypeInfo().Assembly;
+			var resources = assembly.GetManifestResourceNames();
+			var resourceName = resources.First(x => x == string.Concat("[ProjectName].Fonts.", faceName)); // replace the [ProjectName] with the name of your shared project
+			using (var rs = assembly.GetManifestResourceStream(resourceName))
+			{
+				rs.CopyTo(ms);
+				ms.Position = 0;
+				return ms.ToArray();
+			}
+		}
+	}
+
+	public FontResolverInfo ResolveTypeface(string familyName, bool isBold, bool isItalic)
+	{
+		if (familyName.Equals("Lato", StringComparison.CurrentCultureIgnoreCase))
+		{
+			if (isBold && isItalic)
+			{
+				return new FontResolverInfo("Lato-BoldItalic.ttf");
+			}
+			else if (isBold)
+			{
+				return new FontResolverInfo("Lato-Bold.ttf");
+			}
+			else if (isItalic)
+			{
+				return new FontResolverInfo("Lato-Italic.ttf");
+			}
+			else
+			{
+				return new FontResolverInfo("Lato-Regular.ttf");
+			}
+		}
+		return null;
+	}
+}
+```
+3. Initialize the font resolver only once
+```cs
+// Init the self made FontResolver (only once)
+if (!FontResolverAlreadySet)
+{
+    GlobalFontSettings.FontResolver = new FontResolver();
+    FontResolverAlreadySet = true;
+}
+```
+
+
+
 
 # Here is the original readme content from ststeiger/PdfSharpCore
 # PdfSharpCore
