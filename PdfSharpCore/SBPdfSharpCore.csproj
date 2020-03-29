@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Marcel Schulz and Contributors</Authors>
+    <Description>PdfSharp for .NET Core and Xamarin
+
+Port of Stefan Steigers PdfSharpCore library with some modifications.
+PdfSharpCore is a partial port of PdfSharp.Xamarin for .NET Core Additionally MigraDoc has been ported as well (from version 1.32). Images have been implemented with ImageSharp from https://www.nuget.org/packages/SixLabors.ImageSharp</Description>
+    <Copyright>Copyright (c) 2005-2007 empira Software GmbH, Cologne (Germany)</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/schullebernd/PdfSharpCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/schullebernd/PdfSharpCore</RepositoryUrl>
+    <PackageReleaseNotes>Changed the XTextFormatter so that the space between words can be set by the developer.</PackageReleaseNotes>
+    <PackageTags></PackageTags>
+    <summary>PdfSharp for .NET Core</summary>
+    <Version>1.0.5</Version>
+    <Company>Marcel Schulz and Contributors</Company>
+    <Product>PdfSharpCore</Product>
+    <PackageId>Schullebernd.PdfSharpCore</PackageId>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression></PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETCOREAPP1_1;NETCOREAPP1_1;PORTABLE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETCOREAPP1_1;PORTABLE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SixLabors.Fonts" Version="1.0.0-beta0009" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0006" />
+  </ItemGroup>
+</Project>

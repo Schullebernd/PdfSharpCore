@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Schullebernd.PdfSharpCore.Charting</PackageId>
+    <Authors>Marcel Schulz and Contributors</Authors>
+    <Product>PdfSharpCore.Charting</Product>
+    <Company>Marcel Schulz and Contributors</Company>
+    <Version>1.0.5</Version>
+    <Copyright>Copyright (c) 2005-2007 empira Software GmbH, Cologne (Germany)</Copyright>
+    <PackageProjectUrl>https://github.com/schullebernd/PdfSharpCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/schullebernd/PdfSharpCore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Port of Stefan Steigers PdfSharpCore library with some modifications.
+PdfSharpCore is a partial port of PdfSharp.Xamarin for .NET Core Additionally MigraDoc has been ported as well (from version 1.32)</PackageReleaseNotes>
+    <Description>Package for charting functions for PdfSharpCore and MicraDocCore. If you want to render pdf you have to install the package Schullebernd.PdfSharpCore.MigraDocCore. It contains and relates to all nessecary packages to create a document and render it to pdf.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PdfSharpCore\SBPdfSharpCore.csproj" />
+  </ItemGroup>
+
+</Project>

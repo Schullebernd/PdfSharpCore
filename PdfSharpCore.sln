@@ -1,22 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharpCore", "PdfSharpCore\PdfSharpCore.csproj", "{4005DEBC-75F8-48DA-BBCC-353E17872B3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBPdfSharpCore", "PdfSharpCore\SBPdfSharpCore.csproj", "{4005DEBC-75F8-48DA-BBCC-353E17872B3E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharpCore.Charting", "PdfSharpCore.Charting\PdfSharpCore.Charting.csproj", "{F29A5C30-44F9-4BED-8805-21889418DA94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBPdfSharpCore.Charting", "PdfSharpCore.Charting\SBPdfSharpCore.Charting.csproj", "{F29A5C30-44F9-4BED-8805-21889418DA94}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigraDocCore.DocumentObjectModel", "MigraDocCore.DocumentObjectModel\MigraDocCore.DocumentObjectModel.csproj", "{BB848A5B-07EB-4DC1-A677-5F0EE9FCB68B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBMigraDocCore.DocumentObjectModel", "MigraDocCore.DocumentObjectModel\SBMigraDocCore.DocumentObjectModel.csproj", "{BB848A5B-07EB-4DC1-A677-5F0EE9FCB68B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigraDocCore.Rendering", "MigraDocCore.Rendering\MigraDocCore.Rendering.csproj", "{4904F1BB-A236-45AC-BE30-85A0A5218630}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBMigraDocCore.Rendering", "MigraDocCore.Rendering\SBMigraDocCore.Rendering.csproj", "{4904F1BB-A236-45AC-BE30-85A0A5218630}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13A662F4-8E9E-4C4E-A2F8-D56EF31E420B}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharpCore.Test", "PdfSharpCore.Test\PdfSharpCore.Test.csproj", "{A862C0CE-C095-459C-A32B-8FCDD15A93BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBPdfSharpCore.Test", "PdfSharpCore.Test\SBPdfSharpCore.Test.csproj", "{A862C0CE-C095-459C-A32B-8FCDD15A93BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

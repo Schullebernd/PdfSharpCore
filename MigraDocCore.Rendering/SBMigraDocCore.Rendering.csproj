@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Schullebernd.PdfSharpCore.MigraDocCore</PackageId>
+    <Version>1.0.5</Version>
+    <Authors>Marcel Schulz and Contributors</Authors>
+    <Company>Marcel Schulz and Contributors</Company>
+    <Product>PdfSharpCore.MigraDocCore</Product>
+    <Copyright>Copyright (c) 2005-2007 empira Software GmbH, Cologne (Germany)</Copyright>
+    <PackageProjectUrl>https://github.com/schullebernd/PdfSharpCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/schullebernd/PdfSharpCore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>MigraDoc and PdfSharp for .NET Core and Xamarin to create documents and render it to pdf.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.Debug" Version="4.3.0" />
+    <PackageReference Include="System.Diagnostics.Tracing" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MigraDocCore.DocumentObjectModel\SBMigraDocCore.DocumentObjectModel.csproj">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <Private>true</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\PdfSharpCore.Charting\SBPdfSharpCore.Charting.csproj" />
+  </ItemGroup>
+
+</Project>
