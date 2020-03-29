@@ -17,7 +17,9 @@ The library also contains the MigraDoc port. It's working from my point of view 
 5. In the NuGet-Manager-Options add this folder as a package source (This has to be done in the solution project thats wants to use the MigraDoc and PdfSharp functions).
 6. Now open the Nuget-Manager and switch the source to the new local folder (on the top right corner).
 7. Now you should see the list of the self-created nuget packages and can install it.
+
 7.1. If you only want to use PdfSharpCore, then install Schullebernd.PdfSharpCore package.
+
 7.2. If you want to use MigraDoc to create pdf files, then install Schullebernd.PdfSharpCore.MigraDocCore package.
 
 ## Usage in a Xamarin App
